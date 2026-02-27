@@ -1,0 +1,7 @@
+Line 1: Java is powerful
+Line 2: File handling is easy
+Line 3: BufferedWriter improves performance
+Line 4: Overwriting old content
+Line 5: End of file
+Line 6: Appending new data
+Line 7: Old content is preserved
