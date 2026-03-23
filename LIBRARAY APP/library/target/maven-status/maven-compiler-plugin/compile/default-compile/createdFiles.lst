@@ -1,0 +1,6 @@
+com\example\servlet\UpdateBookServlet.class
+com\example\servlet\DeleteBookServlet.class
+com\example\servlet\AddBookServlet.class
+com\example\servlet\SearchBookServlet.class
+com\example\util\DBConnection.class
+com\example\model\Book.class
