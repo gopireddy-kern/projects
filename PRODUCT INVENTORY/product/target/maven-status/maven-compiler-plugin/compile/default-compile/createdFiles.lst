@@ -1,0 +1,7 @@
+com\example\model\Product.class
+com\example\dao\productDAO.class
+com\example\servlet\UpdateproductServlet.class
+com\example\servlet\DeleteproductServlet.class
+com\example\util\DBConnection.class
+com\example\servlet\AddproductServlet.class
+com\example\servlet\ListproductServlet.class
