@@ -1,0 +1,142 @@
+2026-03-31 10:32:08 [INFO] com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.10 with PID 51148 (C:\Users\ADMIN\Downloads\demo\demo\build\classes\java\main started by ADMIN in C:\Users\ADMIN\Downloads\demo)
+2026-03-31 10:32:08 [INFO] com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-03-31 10:32:08 [INFO] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-03-31 10:32:08 [INFO] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-03-31 10:32:18 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-31 10:32:18 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 261 ms. Found 1 JPA repository interface.
+2026-03-31 10:32:22 [INFO] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8088 (http)
+2026-03-31 10:32:22 [INFO] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8088"]
+2026-03-31 10:32:22 [INFO] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-03-31 10:32:22 [INFO] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-03-31 10:32:22 [INFO] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 13940 ms
+2026-03-31 10:32:23 [INFO] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-31 10:32:24 [INFO] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-03-31 10:32:28 [INFO] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-31 10:32:28 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-03-31 10:32:30 [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3f3b4ef5
+2026-03-31 10:32:30 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-03-31 10:32:31 [INFO] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://127.0.0.1:3306/testdb]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.45
+	Default catalog/schema: testdb/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-31 10:32:36 [INFO] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-31 10:32:37 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-31 10:32:37 [INFO] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-31 10:32:39 [WARN] o.s.b.s.a.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: d35d4b95-31e9-463e-89c8-a017097b4681
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-03-31 10:32:39 [INFO] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-03-31 10:32:43 [INFO] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8088"]
+2026-03-31 10:32:43 [INFO] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8088 (http) with context path '/'
+2026-03-31 10:32:43 [INFO] com.example.demo.DemoApplication - Started DemoApplication in 39.517 seconds (process running for 43.953)
+2026-03-31 10:35:09 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-31 10:35:09 [INFO] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-03-31 10:35:09 [INFO] o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2026-03-31 10:38:49 [INFO] c.e.demo.controller.UserController - Fetching all users
+2026-03-31 10:42:18 [INFO] c.e.demo.controller.UserController - Fetching all users
+2026-03-31 11:58:24 [INFO] com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.10 with PID 43708 (C:\Users\ADMIN\Downloads\demo\demo\build\classes\java\main started by ADMIN in C:\Users\ADMIN\Downloads\demo)
+2026-03-31 11:58:24 [INFO] com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-03-31 11:58:24 [INFO] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-03-31 11:58:24 [INFO] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-03-31 11:58:28 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-31 11:58:29 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 237 ms. Found 1 JPA repository interface.
+2026-03-31 11:58:32 [INFO] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8088 (http)
+2026-03-31 11:58:32 [INFO] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8088"]
+2026-03-31 11:58:32 [INFO] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-03-31 11:58:32 [INFO] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-03-31 11:58:32 [INFO] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 7777 ms
+2026-03-31 11:58:33 [INFO] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-31 11:58:33 [INFO] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-03-31 11:58:35 [INFO] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-31 11:58:35 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-03-31 11:58:37 [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2d8de878
+2026-03-31 11:58:37 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-03-31 11:58:37 [INFO] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://127.0.0.1:3306/testdb]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.45
+	Default catalog/schema: testdb/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-31 11:58:39 [INFO] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-31 11:58:39 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-31 11:58:39 [INFO] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-31 11:58:40 [WARN] o.s.b.s.a.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: f648691a-cb8c-4dea-91c9-2b671c05e961
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-03-31 11:58:40 [INFO] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-03-31 11:58:40 [INFO] o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-03-31 11:58:41 [INFO] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8088"]
+2026-03-31 11:58:42 [INFO] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8088 (http) with context path '/'
+2026-03-31 11:58:42 [INFO] com.example.demo.DemoApplication - Started DemoApplication in 21.07 seconds (process running for 23.1)
+2026-03-31 12:00:17 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-31 12:00:17 [INFO] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-03-31 12:00:17 [INFO] o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2026-03-31 12:07:53 [INFO] c.e.demo.controller.UserController - Fetching all users
+2026-03-31 18:50:34 [INFO] com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.10 with PID 54728 (C:\Users\ADMIN\Downloads\demo\demo\build\classes\java\main started by ADMIN in C:\Users\ADMIN\Downloads\demo)
+2026-03-31 18:50:34 [INFO] com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-03-31 18:50:35 [INFO] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-03-31 18:50:35 [INFO] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-03-31 18:50:39 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-31 18:50:40 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 188 ms. Found 1 JPA repository interface.
+2026-03-31 18:50:42 [INFO] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8088 (http)
+2026-03-31 18:50:42 [INFO] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8088"]
+2026-03-31 18:50:42 [INFO] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-03-31 18:50:42 [INFO] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-03-31 18:50:43 [INFO] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 8082 ms
+2026-03-31 18:50:44 [INFO] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-31 18:50:44 [INFO] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-03-31 18:50:47 [INFO] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-31 18:50:47 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-03-31 18:50:49 [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3959ea79
+2026-03-31 18:50:49 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-03-31 18:50:49 [INFO] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://127.0.0.1:3306/testdb]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.45
+	Default catalog/schema: testdb/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-31 18:50:52 [INFO] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-31 18:50:53 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-31 18:50:53 [INFO] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-31 18:50:55 [WARN] o.s.b.s.a.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 1ae7131d-03cf-4e06-b482-8dba3cbafee4
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-03-31 18:50:55 [INFO] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-03-31 18:50:56 [INFO] o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-03-31 18:50:57 [INFO] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8088"]
+2026-03-31 18:50:57 [INFO] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8088 (http) with context path '/'
+2026-03-31 18:50:57 [INFO] com.example.demo.DemoApplication - Started DemoApplication in 26.827 seconds (process running for 31.029)
+2026-03-31 18:52:51 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-31 18:52:51 [INFO] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-03-31 18:52:51 [INFO] o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+2026-03-31 18:54:28 [INFO] c.e.demo.controller.UserController - Fetching all users
+2026-03-31 19:12:37 [WARN] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m22s620ms166µs800ns).

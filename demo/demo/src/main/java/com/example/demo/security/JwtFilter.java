@@ -12,6 +12,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.util.Collections;
 
 @Component
 public class JwtFilter implements jakarta.servlet.Filter {
@@ -31,15 +32,22 @@ public class JwtFilter implements jakarta.servlet.Filter {
 
         String path = req.getRequestURI();
 
-        // ✅ Allow login API without token
-        if (path.startsWith("/auth")) {
+        // ✅ Allow public APIs (Swagger + Login)
+        if (path.startsWith("/auth") ||
+            path.startsWith("/swagger-ui") ||
+            path.startsWith("/v3/api-docs")) {
+
             chain.doFilter(request, response);
             return;
         }
 
         String header = req.getHeader("Authorization");
 
-        // ❌ Missing or wrong header
+        // 🔍 Debug (optional)
+        System.out.println("PATH: " + path);
+        System.out.println("HEADER: " + header);
+
+        // ❌ Missing or invalid header
         if (header == null || !header.startsWith("Bearer ")) {
             res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             res.getWriter().write("Missing or invalid Authorization header");
@@ -48,20 +56,33 @@ public class JwtFilter implements jakarta.servlet.Filter {
 
         String token = header.substring(7);
 
-        // ❌ Invalid token
-        if (!jwtUtil.validateToken(token)) {
+        try {
+            // ❌ Invalid token
+            if (!jwtUtil.validateToken(token)) {
+                res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                res.getWriter().write("Invalid JWT Token");
+                return;
+            }
+
+            // ✅ Extract username
+            String username = jwtUtil.extractUsername(token);
+
+            // ✅ Set authentication (IMPORTANT)
+            UsernamePasswordAuthenticationToken auth =
+                    new UsernamePasswordAuthenticationToken(
+                            username,
+                            null,
+                            Collections.emptyList() // 👈 important
+                    );
+
+            SecurityContextHolder.getContext().setAuthentication(auth);
+
+        } catch (Exception e) {
+            e.printStackTrace(); // 🔥 debug
             res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            res.getWriter().write("Invalid JWT Token");
+            res.getWriter().write("Token error");
             return;
         }
-
-        // ✅ VERY IMPORTANT (Fix for 403)
-        String username = jwtUtil.extractUsername(token);
-
-        UsernamePasswordAuthenticationToken auth =
-                new UsernamePasswordAuthenticationToken(username, null, null);
-
-        SecurityContextHolder.getContext().setAuthentication(auth);
 
         // ✅ Continue request
         chain.doFilter(request, response);
