@@ -2,20 +2,20 @@ package com.example.demo.security;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.ServletRequest;
-import jakarta.servlet.ServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
+import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 import java.util.Collections;
 
 @Component
-public class JwtFilter implements jakarta.servlet.Filter {
+public class JwtFilter extends OncePerRequestFilter {
 
     private final JwtUtil jwtUtil;
 
@@ -24,67 +24,64 @@ public class JwtFilter implements jakarta.servlet.Filter {
     }
 
     @Override
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-            throws IOException, ServletException {
+    protected void doFilterInternal(HttpServletRequest request,
+                                    HttpServletResponse response,
+                                    FilterChain filterChain)
+            throws ServletException, IOException {
 
-        HttpServletRequest req = (HttpServletRequest) request;
-        HttpServletResponse res = (HttpServletResponse) response;
+        String path = request.getRequestURI();
 
-        String path = req.getRequestURI();
-
-        // ✅ Allow public APIs (Swagger + Login)
+        // ✅ Skip public endpoints
         if (path.startsWith("/auth") ||
             path.startsWith("/swagger-ui") ||
-            path.startsWith("/v3/api-docs")) {
+            path.startsWith("/v3/api-docs") ||
+            path.startsWith("/users")) {
 
-            chain.doFilter(request, response);
+            filterChain.doFilter(request, response);
             return;
         }
 
-        String header = req.getHeader("Authorization");
+        String authHeader = request.getHeader("Authorization");
 
-        // 🔍 Debug (optional)
-        System.out.println("PATH: " + path);
-        System.out.println("HEADER: " + header);
-
-        // ❌ Missing or invalid header
-        if (header == null || !header.startsWith("Bearer ")) {
-            res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            res.getWriter().write("Missing or invalid Authorization header");
+        // ✅ If no token → just continue (Spring Security will handle)
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            filterChain.doFilter(request, response);
             return;
         }
 
-        String token = header.substring(7);
+        String token = authHeader.substring(7);
 
         try {
-            // ❌ Invalid token
-            if (!jwtUtil.validateToken(token)) {
-                res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-                res.getWriter().write("Invalid JWT Token");
-                return;
-            }
+            // ✅ Validate token
+            if (jwtUtil.validateToken(token)) {
 
-            // ✅ Extract username
-            String username = jwtUtil.extractUsername(token);
+                String username = jwtUtil.extractUsername(token);
 
-            // ✅ Set authentication (IMPORTANT)
-            UsernamePasswordAuthenticationToken auth =
-                    new UsernamePasswordAuthenticationToken(
-                            username,
-                            null,
-                            Collections.emptyList() // 👈 important
+                // ✅ Set authentication if not already present
+                if (username != null &&
+                    SecurityContextHolder.getContext().getAuthentication() == null) {
+
+                    UsernamePasswordAuthenticationToken auth =
+                            new UsernamePasswordAuthenticationToken(
+                                    username,
+                                    null,
+                                    Collections.emptyList()
+                            );
+
+                    auth.setDetails(
+                            new WebAuthenticationDetailsSource().buildDetails(request)
                     );
 
-            SecurityContextHolder.getContext().setAuthentication(auth);
+                    SecurityContextHolder.getContext().setAuthentication(auth);
+                }
+            }
 
         } catch (Exception e) {
-            e.printStackTrace(); // 🔥 debug
-            res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            res.getWriter().write("Token error");
-            return;
+            // ❌ Do NOT block request here
+            e.printStackTrace();
         }
 
-        // ✅ Continue request
-        chain.doFilter(request, response);
+        // ✅ Continue filter chain
+        filterChain.doFilter(request, response);
     }
 }

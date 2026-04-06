@@ -1,0 +1,35 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 101
+      author: gopi
+      changes:
+        - createTable:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+
+              - column:
+                  name: email
+                  type: VARCHAR(255)
+
+  - changeSet:
+      id: 102
+      author: gopi
+      changes:
+        - addColumn:
+            tableName: user
+            columns:
+              - column:
+                  name: age
+                  type: INT

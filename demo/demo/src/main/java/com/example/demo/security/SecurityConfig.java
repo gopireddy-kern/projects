@@ -19,19 +19,28 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
-            .csrf(csrf -> csrf.disable()) // ✅ disable CSRF
+            // Disable CSRF for REST APIs
+            .csrf(csrf -> csrf.disable())
+
+            // Disable default login forms
+            .formLogin(form -> form.disable())
+            .httpBasic(basic -> basic.disable())
+
+            // Authorization rules
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(
-                    "/auth/**",              // login API
-                    "/v3/api-docs/**",      // Swagger docs
-                    "/swagger-ui/**",       // Swagger UI
+                    "/auth/**",
+                    "/users/**",          // ✅ allow users endpoint (remove in production if needed)
+                    "/v3/api-docs/**",
+                    "/swagger-ui/**",
                     "/swagger-ui.html"
                 ).permitAll()
-                .anyRequest().authenticated() // 🔐 protect all other APIs
+                .anyRequest().authenticated()
             )
-            .addFilterBefore(jwtFilter,
-                UsernamePasswordAuthenticationFilter.class);
 
-        return http.build(); // ✅ ONLY ONE return
+            // Add JWT filter before UsernamePasswordAuthenticationFilter
+            .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+
+        return http.build();
     }
 }

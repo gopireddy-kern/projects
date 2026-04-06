@@ -36,14 +36,14 @@ public class UserController {
 
     // READ BY ID
     @GetMapping("/{id}")
-    public User getUser(@PathVariable Long id) {
+    public User getUser(@PathVariable("id") Long id) {
         logger.info("Fetching user with ID: {}", id);
-        return service.getUserById(id); // may throw exception
+        return service.getUserById(id);
     }
 
     // UPDATE
     @PutMapping("/{id}")
-    public User updateUser(@PathVariable Long id, @RequestBody User user) {
+    public User updateUser(@PathVariable("id") Long id, @RequestBody User user) {
         logger.info("Updating user with ID: {}", id);
         user.setId(id);
         return service.saveUser(user);
@@ -51,7 +51,7 @@ public class UserController {
 
     // DELETE
     @DeleteMapping("/{id}")
-    public String deleteUser(@PathVariable Long id) {
+    public String deleteUser(@PathVariable("id") Long id) {
         logger.info("Deleting user with ID: {}", id);
         service.deleteUser(id);
         return "User deleted successfully";

@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: gopi
+      changes:
+        - addColumn:
+            tableName: user
+            columns:
+              - column:
+                  name: age
+                  type: INT
